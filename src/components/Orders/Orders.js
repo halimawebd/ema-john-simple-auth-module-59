@@ -21,6 +21,7 @@ const Orders = () => {
 
     return (
         <div className='shop-container'>
+            
             <div className='orders-container'>
                 {
                     cart.map(product => <ReviewItem
@@ -28,6 +29,7 @@ const Orders = () => {
                         product={product}
                         handleRemoveItem={handleRemoveItem}
                     ></ReviewItem>)
+
                 }
                 {
                     cart.length === 0 && <h2>No Items for Review. Please <Link to="/">Shop more</Link></h2>
