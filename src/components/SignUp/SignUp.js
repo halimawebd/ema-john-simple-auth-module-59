@@ -5,7 +5,7 @@ import './SignUp.css';
 
 const SignUp = () => {
     const [error, setError] = useState(null);
-    const {createUser} = useContext(AuthContext);
+    const {createUser, setUser} = useContext(AuthContext);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -29,6 +29,7 @@ const SignUp = () => {
        .then(result =>{
         const user = result.user;
         console.log(user);
+        setUser(user)
         form.reset();
        })
        .catch(error => console.error(error));
@@ -47,7 +48,7 @@ const SignUp = () => {
             </div>
             <div className='form-control'>
                 <label htmlFor='confrim'>Confrim Password</label>
-                <input type="confrim" name='confrim' required />
+                <input type="password" name='confrim' required />
             </div>
             
             <input className="btn-submit" type="submit" value="signup"/>
